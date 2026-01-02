@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Français Pro | المنصة التعليمية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --accent: #10b981;
+            --dark: #0f172a;
+        }
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background-color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+        }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .section-title::after {
+            content: ''; display: block; width: 60px; height: 4px; background: var(--primary); margin: 10px auto; border-radius: 2px;
+        }
+        .floating { animation: floating 3s ease-in-out infinite; }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .hidden-section { display: none; }
+        .active-tab { border-bottom: 4px solid white; font-weight: 900; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="glass sticky top-0 z-50 shadow-sm px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="bg-blue-600 text-white p-2 rounded-lg font-black tracking-tighter">FR</div>
+            <span class="text-xl font-black text-blue-900">Le Français Pro</span>
+        </div>
+        <div class="hidden md:flex gap-8 text-gray-600 font-bold">
+            <a href="#vocab" class="hover:text-blue-600 transition">القاموس</a>
+            <a href="#grammar" class="hover:text-blue-600 transition">القواعد</a>
+            <a href="#numbers" class="hover:text-blue-600 transition">الأرقام</a>
+            <a href="#exam" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">ابدأ الامتحان</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white pt-20 pb-32 px-6 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="text-right md:w-1/2">
+                <span class="inline-block bg-blue-500/30 text-blue-100 px-4 py-1 rounded-full text-sm mb-4">حصرياً لدفعة 2026 🚀</span>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">اضمن الدرجة النهائية <br><span class="text-blue-300">في الفرنساوي</span></h1>
+                <p class="text-lg text-blue-100 mb-8 opacity-90">موقع تفاعلي شامل يجمع كل الكلمات والقواعد والتمارين اللي هتحتاجها في ليلة الامتحان.</p>
+                <div class="flex gap-4">
+                    <a href="#vocab" class="bg-white text-blue-700 px-8 py-4 rounded-2xl font-black shadow-xl hover:bg-blue-50 transition">ابدأ المذاكرة</a>
+                    <a href="#exam" class="bg-blue-400/20 border border-blue-300 px-8 py-4 rounded-2xl font-black hover:bg-blue-400/30 transition">الامتحان الشامل</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center relative">
+                <div class="w-64 h-64 bg-blue-400 rounded-full blur-3xl absolute opacity-30 floating"></div>
+                <img src="https://img.icons8.com/illustrations/external-justicon-lineal-color-justicon/512/external-eiffel-tower-france-justicon-lineal-color-justicon.png" class="w-80 z-10 floating" alt="Paris">
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <div class="max-w-5xl mx-auto -mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 px-6 relative z-20">
+        <div class="bg-white p-6 rounded-3xl shadow-xl text-center border border-gray-100">
+            <div class="text-3xl font-black text-blue-600 mb-1">50+</div>
+            <div class="text-sm text-gray-500 font-bold">كلمة مهمة</div>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-xl text-center border border-gray-100">
+            <div class="text-3xl font-black text-green-600 mb-1">10+</div>
+            <div class="text-sm text-gray-500 font-bold">قواعد لغوية</div>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-xl text-center border border-gray-100">
+            <div class="text-3xl font-black text-orange-600 mb-1">11</div>
+            <div class="text-sm text-gray-500 font-bold">الأرقام</div>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-xl text-center border border-gray-100">
+            <div class="text-3xl font-black text-purple-600 mb-1">20</div>
+            <div class="text-sm text-gray-500 font-bold">تمرين تفاعلي</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto py-20 px-6">
+        
+        <!-- Vocabulary Section -->
+        <section id="vocab" class="mb-32">
+            <h2 class="text-4xl font-black text-center mb-16 section-title text-blue-900">قاموس المفردات (Vocabulaire)</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Word Cards -->
+                <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm card-hover flex flex-col items-center">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-sun"></i></div>
+                    <h3 class="text-xl font-black text-blue-600">Bonjour</h3>
+                    <p class="text-gray-500 font-bold">صباح الخير</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm card-hover flex flex-col items-center">
+                    <div class="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-moon"></i></div>
+                    <h3 class="text-xl font-black text-indigo-600">Bonsoir</h3>
+                    <p class="text-gray-500 font-bold">مساء الخير</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm card-hover flex flex-col items-center">
+                    <div class="w-16 h-16 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-check"></i></div>
+                    <h3 class="text-xl font-black text-green-600">Merci</h3>
+                    <p class="text-gray-500 font-bold">شكراً</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm card-hover flex flex-col items-center">
+                    <div class="w-16 h-16 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-door-open"></i></div>
+                    <h3 class="text-xl font-black text-red-600">Au revoir</h3>
+                    <p class="text-gray-500 font-bold">إلى اللقاء</p>
+                </div>
+            </div>
+
+            <!-- School Vocabulary Table -->
+            <div class="mt-12 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                <div class="bg-blue-900 p-6 text-white font-black text-xl flex items-center gap-3">
+                    <i class="fa-solid fa-school"></i> مفردات المدرسة (L'école)
+                </div>
+                <div class="p-6 overflow-x-auto">
+                    <table class="w-full text-right">
+                        <thead>
+                            <tr class="text-blue-900 border-b-2 border-blue-50">
+                                <th class="pb-4 pr-4">الكلمة بالفرنسية</th>
+                                <th class="pb-4 pr-4">الترجمة بالعربية</th>
+                                <th class="pb-4 pr-4">النوع</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600">
+                            <tr class="hover:bg-blue-50 transition border-b border-gray-50">
+                                <td class="py-4 pr-4 font-bold text-blue-700">Un élève</td>
+                                <td class="py-4 pr-4 font-bold">تلميذ</td>
+                                <td class="py-4 pr-4"><span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs">مذكر</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition border-b border-gray-50">
+                                <td class="py-4 pr-4 font-bold text-blue-700">Un professeur</td>
+                                <td class="py-4 pr-4 font-bold">مدرس</td>
+                                <td class="py-4 pr-4"><span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs">مذكر</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition border-b border-gray-50">
+                                <td class="py-4 pr-4 font-bold text-pink-700">Une fille</td>
+                                <td class="py-4 pr-4 font-bold">بنت</td>
+                                <td class="py-4 pr-4"><span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-xs">مؤنث</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition border-b border-gray-50">
+                                <td class="py-4 pr-4 font-bold text-blue-700">Un garçon</td>
+                                <td class="py-4 pr-4 font-bold">ولد</td>
+                                <td class="py-4 pr-4"><span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs">مذكر</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grammar Section -->
+        <section id="grammar" class="mb-32">
+            <h2 class="text-4xl font-black text-center mb-16 section-title text-blue-900">القواعد اللغوية (Grammaire)</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Verb Card -->
+                <div class="bg-white p-8 rounded-3xl shadow-xl border-t-8 border-blue-600">
+                    <h3 class="text-2xl font-black text-blue-900 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-signature text-blue-600"></i> فعل يُسمى (S'appeler)
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center bg-gray-50 p-4 rounded-2xl">
+                            <span class="text-blue-700 font-bold text-xl">Je m'appelle</span>
+                            <span class="text-gray-400">أنا أُسمى</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-gray-50 p-4 rounded-2xl">
+                            <span class="text-blue-700 font-bold text-xl">Tu t'appelles</span>
+                            <span class="text-gray-400">أنت تُسمى</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-gray-50 p-4 rounded-2xl">
+                            <span class="text-blue-700 font-bold text-xl">Il / Elle s'appelle</span>
+                            <span class="text-gray-400">هو / هي تُسمى</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-gray-50 p-4 rounded-2xl">
+                            <span class="text-blue-700 font-bold text-xl">Nous nous appelons</span>
+                            <span class="text-gray-400">نحن نُسمى</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-gray-50 p-4 rounded-2xl">
+                            <span class="text-blue-700 font-bold text-xl">Vous vous appelez</span>
+                            <span class="text-gray-400">أنتم تُسمون</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-gray-50 p-4 rounded-2xl">
+                            <span class="text-blue-700 font-bold text-xl">Ils / Elles s'appellent</span>
+                            <span class="text-gray-400">هم / هن يُسمون</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pronouns Card -->
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-br from-indigo-900 to-blue-800 p-8 rounded-3xl shadow-xl text-white">
+                        <h3 class="text-2xl font-black mb-6">تحويل الأسماء لضمائر</h3>
+                        <ul class="space-y-4 font-bold">
+                            <li class="flex items-center gap-3 bg-white/10 p-3 rounded-xl">
+                                <i class="fa-solid fa-circle-check text-green-400"></i>
+                                Ali = Il (هو)
+                            </li>
+                            <li class="flex items-center gap-3 bg-white/10 p-3 rounded-xl">
+                                <i class="fa-solid fa-circle-check text-green-400"></i>
+                                Nora = Elle (هي)
+                            </li>
+                            <li class="flex items-center gap-3 bg-white/10 p-3 rounded-xl">
+                                <i class="fa-solid fa-circle-check text-green-400"></i>
+                                Ali + Hani = Ils (هم)
+                            </li>
+                            <li class="flex items-center gap-3 bg-white/10 p-3 rounded-xl">
+                                <i class="fa-solid fa-circle-check text-green-400"></i>
+                                Nora + Noha = Elles (هن)
+                            </li>
+                            <li class="flex items-center gap-3 bg-white/10 p-3 rounded-xl border border-yellow-400/50">
+                                <i class="fa-solid fa-triangle-exclamation text-yellow-400"></i>
+                                Ali + Maria = Ils (المذكر يسود!)
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- First Group Endings -->
+                    <div class="bg-white p-8 rounded-3xl shadow-xl border-t-8 border-green-500">
+                        <h3 class="text-2xl font-black text-green-700 mb-4">نهايات المجموعة الأولى (-ER)</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-3 bg-green-50 rounded-xl font-bold text-center">Je → <span class="text-red-600">-e</span></div>
+                            <div class="p-3 bg-green-50 rounded-xl font-bold text-center">Tu → <span class="text-red-600">-es</span></div>
+                            <div class="p-3 bg-green-50 rounded-xl font-bold text-center">Il/Elle → <span class="text-red-600">-e</span></div>
+                            <div class="p-3 bg-green-50 rounded-xl font-bold text-center">Nous → <span class="text-red-600">-ons</span></div>
+                            <div class="p-3 bg-green-50 rounded-xl font-bold text-center">Vous → <span class="text-red-600">-ez</span></div>
+                            <div class="p-3 bg-green-50 rounded-xl font-bold text-center">Ils/Elles → <span class="text-red-600">-ent</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Numbers Section -->
+        <section id="numbers" class="mb-32">
+            <h2 class="text-4xl font-black text-center mb-16 section-title text-blue-900">الأرقام (Les Nombres)</h2>
+            <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="bg-white p-6 rounded-3xl text-center shadow-sm hover:bg-blue-600 hover:text-white transition duration-500">
+                    <div class="text-4xl font-black mb-2">1</div>
+                    <div class="font-bold">Un</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl text-center shadow-sm hover:bg-blue-600 hover:text-white transition duration-500">
+                    <div class="text-4xl font-black mb-2">2</div>
+                    <div class="font-bold">Deux</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl text-center shadow-sm hover:bg-blue-600 hover:text-white transition duration-500">
+                    <div class="text-4xl font-black mb-2">3</div>
+                    <div class="font-bold">Trois</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl text-center shadow-sm hover:bg-blue-600 hover:text-white transition duration-500">
+                    <div class="text-4xl font-black mb-2">4</div>
+                    <div class="font-bold">Quatre</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl text-center shadow-sm hover:bg-blue-600 hover:text-white transition duration-500">
+                    <div class="text-4xl font-black mb-2">5</div>
+                    <div class="font-bold">Cinq</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl text-center shadow-sm hover:bg-blue-600 hover:text-white transition duration-500">
+                    <div class="text-4xl font-black mb-2">6</div>
+                    <div class="font-bold">Six</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl text-center shadow-sm hover:bg-blue-600 hover:text-white transition duration-500">
+                    <div class="text-4xl font-black mb-2">7</div>
+                    <div class="font-bold">Sept</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl text-center shadow-sm hover:bg-blue-600 hover:text-white transition duration-500">
+                    <div class="text-4xl font-black mb-2">8</div>
+                    <div class="font-bold">Huit</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl text-center shadow-sm hover:bg-blue-600 hover:text-white transition duration-500">
+                    <div class="text-4xl font-black mb-2">9</div>
+                    <div class="font-bold">Neuf</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl text-center shadow-sm hover:bg-blue-600 hover:text-white transition duration-500">
+                    <div class="text-4xl font-black mb-2">10</div>
+                    <div class="font-bold">Dix</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl text-center shadow-sm bg-blue-100 border-2 border-blue-600 hover:bg-blue-700 hover:text-white transition duration-500 lg:col-span-2">
+                    <div class="text-4xl font-black mb-2">11</div>
+                    <div class="font-bold">Onze</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exam Section -->
+        <section id="exam" class="bg-white rounded-[40px] shadow-2xl p-8 md:p-16 border border-gray-100">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-black text-blue-900 mb-4">التحدي النهائي 🏁</h2>
+                    <p class="text-gray-500 font-bold italic">اختبر معلوماتك وورّينا شطارتك يا بطل!</p>
+                </div>
+
+                <div id="quiz-area" class="space-y-12">
+                    <!-- Dynamic Quiz Content -->
+                </div>
+
+                <div id="quiz-controls" class="mt-12 text-center">
+                    <button id="finish-quiz" class="bg-blue-600 text-white px-10 py-5 rounded-3xl font-black text-xl shadow-xl hover:bg-blue-700 transition transform hover:scale-105 active:scale-95">عرض النتيجة النهائية 🏆</button>
+                </div>
+
+                <div id="final-result" class="hidden-section mt-12 p-8 rounded-3xl text-center">
+                    <h3 class="text-3xl font-black mb-4" id="result-title"></h3>
+                    <p class="text-5xl font-black text-blue-600 mb-6" id="score-display"></p>
+                    <button onclick="window.location.reload()" class="bg-gray-800 text-white px-8 py-3 rounded-2xl font-bold">إعادة التحدي</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-blue-900 text-white py-12 px-6 text-center">
+        <div class="flex items-center justify-center gap-2 mb-6">
+            <div class="bg-white text-blue-900 p-2 rounded-lg font-black tracking-tighter">FR</div>
+            <span class="text-xl font-black">Le Français Pro</span>
+        </div>
+        <p class="text-blue-200 mb-4">بالتوفيق لكل زمايلي في الامتحان! شدّوا حيلكم 💪</p>
+        <div class="text-blue-400 text-sm">تم التصميم بكل حب ❤️ لدفعة 2026</div>
+    </footer>
+
+    <script>
+        const quizData = [
+            { q: "1. Comment .......-tu ?", options: ["t'appelles", "m'appelle", "s'appelle"], correct: 0 },
+            { q: "2. Le matin on dit .......", options: ["Bonsoir", "Salut", "Bonjour"], correct: 2 },
+            { q: "3. Nora et Noha = .......", options: ["Ils", "Elles", "Il"], correct: 1 },
+            { q: "4. Vous ....... à Alex ?", options: ["habitez", "habites", "habite"], correct: 0 },
+            { q: "5. Pour remercier on dit .......", options: ["Pardon", "Merci", "Salut"], correct: 1 },
+            { q: "6. Ali et Maria = .......", options: ["Elles", "Ils", "Elle"], correct: 1 },
+            { q: "7. Le chiffre (9) en français est :", options: ["Neuf", "Huit", "Dix"], correct: 0 },
+            { q: "8. Tu ....... ?", options: ["t'appelles", "t'appelle", "m'appelle"], correct: 0 }
+        ];
+
+        const quizArea = document.getElementById('quiz-area');
+        let userAnswers = new Array(quizData.length).fill(null);
+
+        // Load Quiz
+        quizData.forEach((item, index) => {
+            const qDiv = document.createElement('div');
+            qDiv.className = "quiz-item transition-all duration-500";
+            qDiv.innerHTML = `
+                <p class="text-xl font-black text-gray-800 mb-6 flex items-center gap-3">
+                    <span class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center text-sm">${index + 1}</span>
+                    ${item.q}
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    ${item.options.map((opt, i) => `
+                        <button onclick="selectOption(${index}, ${i}, this)" 
+                            class="option-btn border-2 border-gray-100 p-4 rounded-2xl font-bold text-gray-600 hover:border-blue-300 transition-all text-right flex justify-between items-center">
+                            ${opt}
+                            <div class="check-icon opacity-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-[10px]"><i class="fa-solid fa-check"></i></div>
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+            quizArea.appendChild(qDiv);
+        });
+
+        function selectOption(qIdx, oIdx, btn) {
+            userAnswers[qIdx] = oIdx;
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => {
+                b.classList.remove('border-blue-600', 'bg-blue-50', 'text-blue-700');
+                b.querySelector('.check-icon').classList.add('opacity-0');
+            });
+            btn.classList.add('border-blue-600', 'bg-blue-50', 'text-blue-700');
+            btn.querySelector('.check-icon').classList.remove('opacity-0');
+        }
+
+        document.getElementById('finish-quiz').onclick = function() {
+            let score = 0;
+            let missing = false;
+
+            userAnswers.forEach((ans, i) => {
+                if(ans === null) missing = true;
+                if(ans === quizData[i].correct) score++;
+            });
+
+            if(missing) {
+                alert("يا بطل.. حل كل الأسئلة الأول عشان نشوف شطارتك! 😉");
+                return;
+            }
+
+            const finalResult = document.getElementById('final-result');
+            const scoreDisplay = document.getElementById('score-display');
+            const resultTitle = document.getElementById('result-title');
+            
+            finalResult.classList.remove('hidden-section');
+            scoreDisplay.innerText = `${score} / ${quizData.length}`;
+            
+            if(score === quizData.length) {
+                resultTitle.innerText = "أنت أسطورة! الدرجة النهائية 🌟";
+                finalResult.classList.add('bg-green-50');
+            } else if(score > quizData.length / 2) {
+                resultTitle.innerText = "عاش يا بطل.. مجهود رائع! 👍";
+                finalResult.classList.add('bg-blue-50');
+            } else {
+                resultTitle.innerText = "محتاج تراجع شوية كمان.. أنت قدها! 💪";
+                finalResult.classList.add('bg-orange-50');
+            }
+
+            this.style.display = 'none';
+            finalResult.scrollIntoView({ behavior: 'smooth' });
+        };
+    </script>
+</body>
+</html>
